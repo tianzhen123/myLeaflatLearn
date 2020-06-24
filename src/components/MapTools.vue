@@ -5,6 +5,8 @@
       <li @click="$emit('polyline')">Polyline</li>
       <li @click="$emit('polygon')">Polygon</li>
       <li @click="$emit('toolTip')">ToolTip</li>
+      <li @click="$emit('popup')">popup</li>
+      <li @click="$emit('bindPopup')">bindPopup</li>
     </ul>
   </div>
 </template>

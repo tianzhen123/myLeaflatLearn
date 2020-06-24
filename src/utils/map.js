@@ -67,4 +67,24 @@ const createPolygon = (map, areaPath, areaOpts) => {
     return polygon;
 };
 
-export default { createMap, createTileLayer, createIcon, createMakerByXY, createPolyline, createPolygon };
+const createPopup = (map, options) => {
+    let popup = $L.popup(options);
+    return popup;
+};
+
+// 通过数组创建 latlng
+const createLatlonByArray = (coordinate) => {
+    let latLng = $L.latLng(coordinate[0], coordinate[1]);
+    return latLng;
+};
+
+export default {
+    createMap,
+    createTileLayer,
+    createIcon,
+    createMakerByXY, 
+    createPolyline, 
+    createPolygon, 
+    createPopup, 
+    createLatlonByArray
+};

@@ -8,6 +8,8 @@
       @polyline="addPolyline"
       @polygon="addPolygon"
       @toolTip="addToolTip"
+      @popup ="addPopUp"
+      @bindPopup ="bindPopup"
     ></MapTools>
   </div>
 </template>
@@ -205,6 +207,40 @@ export default {
         return tpl;
       };
       marker.bindTooltip(toolitps, { className: "sample-tooltips" });
+    },
+    addPopUp() {
+      let popup = this.$utils.map.createPopup(this.map, {
+        maxWidth: 200,
+        minWidth: 100,
+        className: "sample-popup"
+      });
+
+      popup
+        .setLatLng(this.$utils.map.createLatlonByArray([51.505, -0.09]))
+        .setContent(
+          `<h1>popup demo</h1><p>This is the content of the popup demo. The length of the content might be so very that maybe beyond the maxWidth that we set on the popup</p>`
+        )
+        .openOn(this.map);
+    },
+    bindPopup() {
+      let popup = this.$utils.map.createPopup(this.map, {
+        maxWidth: 200,
+        minWidth: 100,
+        className: "sample-popup"
+      });
+
+      popup.setContent(
+        `<h1>popup demo</h1><p>This is the content of the popup demo. The length of the content might be so very that maybe beyond the maxWidth that we set on the popup</p>`
+      );
+
+      let gifIcon = this.$utils.map.createIcon({
+        iconUrl: require("./../assets/images/sample.gif"),
+        iconSize: [32, 32]
+      });
+      let marker = this.$utils.map.createMakerByXY(this.map, [-0.095, 51.505], {
+        icon: gifIcon
+      });
+      marker.bindPopup(popup);
     }
   }
 };
