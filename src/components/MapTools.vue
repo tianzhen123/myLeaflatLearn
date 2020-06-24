@@ -4,6 +4,7 @@
       <li @click="$emit('marker')">Maker</li>
       <li @click="$emit('polyline')">Polyline</li>
       <li @click="$emit('polygon')">Polygon</li>
+      <li @click="$emit('toolTip')">ToolTip</li>
     </ul>
   </div>
 </template>
